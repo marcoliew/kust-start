@@ -1,0 +1,18 @@
+resources:
+  - ../../base/
+commonLabels:
+  env: Prod
+namespace: nginx-prod
+namePrefix: prod-
+nameSuffix: "-1"
+commonAnnotations:
+  oncallPager: 800-555-1111
+
+#patchesStrategicMerge:
+patches:
+  - path: replica-count.yaml
+
+images:
+  - name: nginx
+    newName: nginx
+    newTag: 1.22.0-alpine
