@@ -16,3 +16,13 @@ images:
   - name: nginx
     newName: nginx
     newTag: stable-alpine
+
+configMapGenerator:
+  - name: example-configmap-html-1
+    files:
+    - index.html
+
+secretGenerator:
+  - name: example-secret-1
+    files:
+      - password.txt
