@@ -1,16 +1,21 @@
+
+# composing
 resources:
   - ../../base/
+
+# cross-cutting fields  
 commonLabels:
   env: Prod
 namespace: nginx-prod
-namePrefix: prod-
+namePrefix: prod-     
 nameSuffix: "-1"
 commonAnnotations:
   oncallPager: 800-555-1111
 
-#patchesStrategicMerge:
-patches:
-  - path: replica-count.yaml
+# Customizing (override)
+
+patchesStrategicMerge:
+  - replica-count.yaml
 
 images:
   - name: nginx
